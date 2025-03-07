@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: aqua;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        nav {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            width: 100vw;
+            height: 60px;
+            background-color: black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: aqua;
+            gap: 35px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            color:white;
+            transition: ease-in;
+            transition-duration: 0.3s;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-list p {
+            cursor: pointer;
+            font-size: 20px;
+            color: aqua;
+        }
+
+        .nav-list p:hover {
+            color: white;
+            transition: ease-in;
+            transition-duration: 0.5s;
+        }
+
+        @media screen and (max-width:700px) {
+            .logo {
+                font-size: 22px;
+            }
+
+            .nav-list p {
+                font-size: 16px;
+            }
+
+            .nav-list {
+                gap: 20px;
+            }
+        }
+
+        @media screen and (max-width:450px) {
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-list p {
+                font-size: 13px;
+            }
+
+            .nav-list {
+                gap: 13px;
+            }
+        }
+
+        .intro {
+            width: 80vw;
+            margin: auto;
+            margin-top: 70px;
+            border: 10px solid black;
+            border-radius: 50px;
+            padding-bottom: 40px;
+            transition: ease-in-out;
+            transition-duration: 1s;
+        }
+
+        .intro:hover {
+            background-color: black;
+            border: 10px solid white;
+            color: aqua;
+            transition: ease-in-out;
+            transition-duration: 1s;
+
+            p {
+                color: aqua;
+                transition: ease-in-out;
+                transition-duration: 1s;
+            }
+        }
+
+        .intro div h2 {
+            margin: 40px auto;
+            text-align: center;
+            font-size: 80px;
+            font-weight: bolder;
+            padding: 0px 20px;
+            cursor: pointer;
+        }
+
+        .intro div p {
+            font-size: 30px;
+            font-style: italic;
+            padding: 0px 30px;
+            text-align: center;
+            color: black;
+            line-height: 1;
+            transition: ease-in-out;
+            transition-duration: 1s;
+        }
+
+
+
+        @media screen and (max-width:803px) {
+            .intro div h2 {
+                font-size: 59px;
+            }
+
+            .intro div p {
+                font-size: 25px;
+            }
+        }
+
+        @media screen and (max-width:605px) {
+            .intro div h2 {
+                font-size: 50px;
+            }
+
+            .intro div p {
+                font-size: 22px;
+            }
+        }
+
+        @media screen and (max-width:520px) {
+            .intro div h2 {
+                font-size: 40px;
+            }
+
+            .intro div p {
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (max-width:425px) {
+            .intro div h2 {
+                font-size: 34px;
+            }
+
+            .intro div p {
+                font-size: 19px;
+            }
+        }
+
+        @media screen and (max-width:370px) {
+            .intro div h2 {
+                font-size: 28px;
+            }
+
+            .intro div p {
+                font-size: 18px;
+            }
+        }
+
+
+        .line {
+            width: 80vw;
+            margin: auto;
+            margin-top: 80px;
+            margin-bottom: 50px;
+        }
+
+        .line p {
+            font-size: 25px;
+            text-align: center;
+            font-weight: bold;
+            color: black;
+            line-height: 1;
+        }
+
+        .content-list {
+            width: 90vw;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 80px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3 {
+            color: #262626;
+            font-size: 17px;
+            line-height: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        p {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 20px;
+            color: #666666;
+
+            &.small {
+                font-size: 14px;
+            }
+        }
+
+        .go-corner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            overflow: hidden;
+            top: 0;
+            right: 0;
+            background-color: #000000;
+            border-radius: 0 4px 0 32px;
+        }
+
+        .go-arrow {
+            margin-top: -4px;
+            margin-right: -4px;
+            color: white;
+            font-family: courier, sans;
+        }
+
+        .card1 {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display: block;
+            position: relative;
+            max-width: 262px;
+            background-color: #f2f8f9;
+            border-radius: 4px;
+            padding: 32px 24px;
+            margin: 12px;
+            text-decoration: none;
+            z-index: 0;
+            overflow: hidden;
+
+            &:before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                top: -16px;
+                right: -16px;
+                background: #000000;
+                height: 32px;
+                width: 32px;
+                border-radius: 32px;
+                transform: scale(1);
+                transform-origin: 50% 50%;
+                transition: transform 0.25s ease-out;
+            }
+
+            &:hover:before {
+                transform: scale(21);
+            }
+        }
+
+        .card1:hover {
+            p {
+                transition: all 0.3s ease-out;
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            h3 {
+                transition: all 0.3s ease-out;
+                color: #ffffff;
+            }
+        }
+
+
+        .footer {
+            margin-top: 100px;
+            width: 100vw;
+            height: 80px;
+            background-color: black;
+            text-align: center;
+            color: white;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                Questions Wallah
+            </div>
+            <div class="nav-list">
+                <p>Home</p>
+                <p>Exams</p>
+                <p>About</p>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="intro">
+                <div>
+                    <h2>
+                        Welcome to the Questions Wallah
+                    </h2>
+                </div>
+                <div>
+                    <p>Welcome to our study platform, designed to help you excel academically. Explore a variety of
+                        resources, including tutorials, practice questions, and tips, all tailored to enhance your
+                        learning experience. Whether you're preparing for exams or mastering new skills, we’ve got the
+                        tools you need to succeed!</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="line">
+                <p>
+                    Click on the exam for which you are preparing.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="content-list">
+                <div class="container">
+                    <a class="card1" href="3.SSC/Subject.html">
+                        <h3>SSC CGL</h3>
+                        <p class="small">Previous Year Question of Mathematics, Reasoning....</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet.</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a class="card1" href="#">
+                        <h3>Next Exam..</h3>
+                        <p class="small">Previous Year All Question With All The Subjet</p>
+                        <div class="go-corner" href="#">
+                            <div class="go-arrow">
+                                →
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+    <footer class="footer">
+        <div>
+            This is a Footer
+        </div>
+    </footer>
+
+</body>
+
+</html>
